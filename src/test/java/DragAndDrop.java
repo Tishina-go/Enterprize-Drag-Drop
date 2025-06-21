@@ -1,4 +1,5 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.DragAndDropOptions;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -42,8 +43,7 @@ public class DragAndDrop {
         $("#column-a").shouldHave(text("A"));
         $("#column-b").shouldHave(text("B"));
         //Перенос прямоугольника А на место В помощью команды $(element).dragAndDrop($(to-element))
-        $("#column-a").dragAndDropTo($("#column-b"));
-        //$("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));  => 2й вариант
+        $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
         //Проверка, что прямоугольники действительно поменялись
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
